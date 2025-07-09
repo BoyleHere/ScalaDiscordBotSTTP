@@ -1,3 +1,23 @@
-# Project exclude paths
-/project/target/
-/target/
+# Environment variables (contains sensitive data)
+.env
+
+# SBT build files
+target/
+project/target/
+project/project/
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# ngrok
+ngrok.yml
