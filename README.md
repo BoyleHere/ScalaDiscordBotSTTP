@@ -66,7 +66,7 @@ DISCORD_APP_ID=your_application_id_here  # Optional - will be auto-detected
 ### Basic Commands
 
 1. **Create a poll**: `/ask question:"Do you like pizza?"`
-2. **Users respond**: Click ��� Yes or ❌ No buttons
+2. **Users respond**: Click ✅ Yes or ❌ No buttons
 3. **View responses**: Check terminal for detailed logs
 
 ### Example Interaction
