@@ -1,8 +1,0 @@
-version: "2"
-authtoken: 2yYTRTcSA2YSHGNsU9s0QeynFVN_515V1FPKBGsEAUU9gjQPz
-tunnels:
-  discord-bot:
-    addr: 8082
-    proto: http
-    domain: sacred-safely-mantis.ngrok-free.app
-
