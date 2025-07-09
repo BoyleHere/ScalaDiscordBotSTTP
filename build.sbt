@@ -11,6 +11,8 @@ libraryDependencies ++= Seq(
   "io.circe" %% "circe-parser" % "0.14.7",
   "org.http4s" %% "http4s-ember-server" % "0.23.26",
   "org.http4s" %% "http4s-dsl" % "0.23.26",
-  "org.typelevel" %% "log4cats-slf4j" % "2.6.0"
+  "org.http4s" %% "http4s-circe" % "0.23.26",
+  "org.typelevel" %% "log4cats-slf4j" % "2.6.0",
+  "io.github.cdimascio" % "dotenv-java" % "3.0.0",
+  "org.bouncycastle" % "bcprov-jdk18on" % "1.77"
 )
-
