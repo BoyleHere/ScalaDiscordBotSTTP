@@ -1,0 +1,14 @@
+{
+  "packageName": "discord.api",
+  "modelPackage": "discord.api.model",
+  "apiPackage": "discord.api.client",
+  "clientPackage": "discord.api.client",
+  "invokerPackage": "discord.api",
+  "groupId": "com.discord",
+  "artifactId": "discord-api-client",
+  "artifactVersion": "1.0.0",
+  "library": "sttp4",
+  "dateLibrary": "java8",
+  "supportingFiles": "ApiClient.scala:DefaultApi.scala"
+}
+
