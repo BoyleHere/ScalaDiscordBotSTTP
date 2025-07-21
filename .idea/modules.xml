@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/chatops4s-discord.iml" filepath="$PROJECT_DIR$/.idea/chatops4s-discord.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/chatops4s-discord/chatops4s-discord.chatops4s-discord-build.iml" filepath="$PROJECT_DIR$/.idea/modules/chatops4s-discord/chatops4s-discord.chatops4s-discord-build.iml" />
     </modules>
   </component>
 </project>

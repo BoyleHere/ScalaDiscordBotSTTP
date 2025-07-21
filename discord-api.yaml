@@ -1,0 +1,221 @@
+openapi: 3.0.3
+info:
+  title: Discord API
+  description: Discord API for Bot Interactions
+  version: 1.0.0
+servers:
+  - url: https://discord.com/api/v10
+    description: Discord API v10
+security:
+  - BearerAuth: []
+paths:
+  /interactions/{interaction_id}/{interaction_token}/callback:
+    post:
+      summary: Create Interaction Response
+      operationId: createInteractionResponse
+      parameters:
+        - name: interaction_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: interaction_token
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InteractionResponse'
+      responses:
+        '200':
+          description: Success
+        '204':
+          description: No Content
+  /webhooks/{application_id}/{interaction_token}/messages/@original:
+    patch:
+      summary: Edit Original Interaction Response
+      operationId: editOriginalInteractionResponse
+      parameters:
+        - name: application_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: interaction_token
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EditWebhookMessage'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+  /webhooks/{application_id}/{interaction_token}:
+    post:
+      summary: Create Followup Message
+      operationId: createFollowupMessage
+      parameters:
+        - name: application_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: interaction_token
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookMessage'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+  schemas:
+    InteractionResponse:
+      type: object
+      required:
+        - type
+      properties:
+        type:
+          type: integer
+          enum: [1, 4, 5, 6, 7, 8, 9, 10, 11]
+        data:
+          $ref: '#/components/schemas/InteractionCallbackData'
+    InteractionCallbackData:
+      type: object
+      properties:
+        content:
+          type: string
+        embeds:
+          type: array
+          items:
+            $ref: '#/components/schemas/Embed'
+        components:
+          type: array
+          items:
+            $ref: '#/components/schemas/Component'
+        flags:
+          type: integer
+    Component:
+      type: object
+      required:
+        - type
+      properties:
+        type:
+          type: integer
+          enum: [1, 2, 3, 4, 5]
+        components:
+          type: array
+          items:
+            $ref: '#/components/schemas/Component'
+        style:
+          type: integer
+        label:
+          type: string
+        emoji:
+          $ref: '#/components/schemas/Emoji'
+        custom_id:
+          type: string
+        url:
+          type: string
+        disabled:
+          type: boolean
+    Emoji:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        animated:
+          type: boolean
+    Embed:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        color:
+          type: integer
+    Message:
+      type: object
+      properties:
+        id:
+          type: string
+        channel_id:
+          type: string
+        content:
+          type: string
+        author:
+          $ref: '#/components/schemas/User'
+        components:
+          type: array
+          items:
+            $ref: '#/components/schemas/Component'
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        username:
+          type: string
+        discriminator:
+          type: string
+        avatar:
+          type: string
+    WebhookMessage:
+      type: object
+      properties:
+        content:
+          type: string
+        embeds:
+          type: array
+          items:
+            $ref: '#/components/schemas/Embed'
+        components:
+          type: array
+          items:
+            $ref: '#/components/schemas/Component'
+        flags:
+          type: integer
+    EditWebhookMessage:
+      type: object
+      properties:
+        content:
+          type: string
+        embeds:
+          type: array
+          items:
+            $ref: '#/components/schemas/Embed'
+        components:
+          type: array
+          items:
+            $ref: '#/components/schemas/Component'
+
